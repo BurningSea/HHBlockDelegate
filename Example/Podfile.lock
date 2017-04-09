@@ -1,0 +1,16 @@
+PODS:
+  - HHBlockDelegate (0.1.0)
+
+DEPENDENCIES:
+  - HHBlockDelegate (from `../`)
+
+EXTERNAL SOURCES:
+  HHBlockDelegate:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  HHBlockDelegate: 1de8d4f9f7b5c7a43c8bdbfe6499703cbf6bd420
+
+PODFILE CHECKSUM: 3c116536206b827d604a0bbecdd3bf7411c8c362
+
+COCOAPODS: 1.2.0

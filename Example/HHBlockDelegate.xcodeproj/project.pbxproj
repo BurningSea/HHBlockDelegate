@@ -39,7 +39,7 @@
 /* Begin PBXFileReference section */
 		29D1E8749789C8096AB96CEF /* Pods_HHBlockDelegate_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HHBlockDelegate_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		33B5A33C8F3EF38CE6C390BF /* Pods-HHBlockDelegate_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HHBlockDelegate_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HHBlockDelegate_Tests/Pods-HHBlockDelegate_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		39139D1DEF07DCE7892ACFC7 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		39139D1DEF07DCE7892ACFC7 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		3A33951D96A0ED5AF10AEB6D /* Pods-HHBlockDelegate_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HHBlockDelegate_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HHBlockDelegate_Example/Pods-HHBlockDelegate_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		5FC9E0C859932EB0DE01DF98 /* Pods_HHBlockDelegate_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HHBlockDelegate_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58A195388D20070C39A /* HHBlockDelegate_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HHBlockDelegate_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,10 +63,10 @@
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		AA6BF4C6A92AD66D307A5C60 /* HHBlockDelegate.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = HHBlockDelegate.podspec; path = ../HHBlockDelegate.podspec; sourceTree = "<group>"; };
+		AA6BF4C6A92AD66D307A5C60 /* HHBlockDelegate.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = HHBlockDelegate.podspec; path = ../HHBlockDelegate.podspec; sourceTree = "<group>"; };
 		B3F2B6DF4183DD51C5D4FD70 /* Pods-HHBlockDelegate_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HHBlockDelegate_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-HHBlockDelegate_Example/Pods-HHBlockDelegate_Example.release.xcconfig"; sourceTree = "<group>"; };
 		CEEA277B114AF4F935DF6E21 /* Pods-HHBlockDelegate_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HHBlockDelegate_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HHBlockDelegate_Tests/Pods-HHBlockDelegate_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		F2D9E12BB0DE9F11CA9501A3 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		F2D9E12BB0DE9F11CA9501A3 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -250,6 +250,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Howie He";
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = W86N3739E4;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -524,11 +527,12 @@
 			baseConfigurationReference = 3A33951D96A0ED5AF10AEB6D /* Pods-HHBlockDelegate_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = W86N3739E4;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HHBlockDelegate/HHBlockDelegate-Prefix.pch";
 				INFOPLIST_FILE = "HHBlockDelegate/HHBlockDelegate-Info.plist";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cc.HHBlockDelegate-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -539,11 +543,12 @@
 			baseConfigurationReference = B3F2B6DF4183DD51C5D4FD70 /* Pods-HHBlockDelegate_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = W86N3739E4;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HHBlockDelegate/HHBlockDelegate-Prefix.pch";
 				INFOPLIST_FILE = "HHBlockDelegate/HHBlockDelegate-Info.plist";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cc.HHBlockDelegate-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
