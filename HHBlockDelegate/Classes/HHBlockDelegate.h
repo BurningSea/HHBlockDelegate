@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ Don't use NSProxy here, as NSProxy will forward '-respondsToSelector:' automatically
+ */
 @interface HHBlockDelegate : NSObject
 
 - (instancetype)initWithProtocol:(Protocol *)protocol

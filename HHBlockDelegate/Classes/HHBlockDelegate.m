@@ -118,12 +118,12 @@ static NSMethodSignature *HH_blockMethodSignature(id block, NSError **error) {
 
 - (BOOL)conformsToProtocol:(Protocol *)aProtocol
 {
-    return [super conformsToProtocol:aProtocol] ?: protocol_conformsToProtocol(self.protocol, aProtocol);
+    return protocol_conformsToProtocol(self.protocol, aProtocol) || [super conformsToProtocol:aProtocol];
 }
 
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)sel
 {
-    return [self.selectorsToBlockInfos[NSStringFromSelector(sel)] methodSignature] ?: [NSObject instanceMethodSignatureForSelector:sel];
+    return [self.selectorsToBlockInfos[NSStringFromSelector(sel)] methodSignature] ?: [super methodSignatureForSelector:sel];
 }
 
 - (void)forwardInvocation:(NSInvocation *)originalInvocation
@@ -135,25 +135,27 @@ static NSMethodSignature *HH_blockMethodSignature(id block, NSError **error) {
         NSInteger numberOfArguments = blockInfo.blockSignature.numberOfArguments;
         
         void *argBuf = NULL;
-        for (NSUInteger idx = 2; idx < numberOfArguments; idx++) {
-            const char *type = [originalInvocation.methodSignature getArgumentTypeAtIndex:idx];
+        for (NSUInteger idx = 1; idx < numberOfArguments; idx++) {
+            const char *type = [originalInvocation.methodSignature getArgumentTypeAtIndex:idx + 1];
             NSUInteger argSize;
             NSGetSizeAndAlignment(type, &argSize, NULL);
             
             if (!(argBuf = reallocf(argBuf, argSize))) {
-//                HHLogError(@"Failed to allocate memory for block invocation.");
                 return;
             }
             
-            [originalInvocation getArgument:argBuf atIndex:idx];
+            [originalInvocation getArgument:argBuf atIndex:idx + 1];
             [blockInvocation setArgument:argBuf atIndex:idx];
         }
         
         [blockInvocation invokeWithTarget:blockInfo.block];
         
-        void *result = NULL;
-        [blockInvocation getReturnValue:&result];
-        [originalInvocation setReturnValue:&result];
+        if (!(argBuf = reallocf(argBuf, originalInvocation.methodSignature.methodReturnLength))) {
+            return;
+        }
+        
+        [blockInvocation getReturnValue:argBuf];
+        [originalInvocation setReturnValue:argBuf];
         
         if (argBuf != NULL) {
             free(argBuf);
