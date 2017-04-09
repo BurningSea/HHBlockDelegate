@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'HHBlockDelegate_Example' do
+  pod 'HHBlockDelegate', :path => '../'
+
+  target 'HHBlockDelegate_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
