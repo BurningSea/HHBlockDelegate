@@ -15,7 +15,15 @@
 
 - (instancetype)initWithProtocol:(Protocol *)protocol
                selectorsToBlocks:(NSDictionary<NSString *, id> *)selectorsToBlocks;
-    
+
 @end
 
-#define BlockDelegate(aProtocol, selsToBlocks) (id<aProtocol>)[[HHBlockDelegate alloc] initWithProtocol:@protocol(aProtocol) selectorsToBlocks:selsToBlocks]
+#define BlockDelegate(aProtocol) (id<aProtocol>)HHCreateDelegate(@protocol(aProtocol))
+
+typedef id(^HHDelegateGeneration)(NSDictionary<NSString *, id> *selectorsToBlocks);
+
+static inline HHDelegateGeneration HHCreateDelegate(Protocol *proto) {
+    return ^(NSDictionary<NSString *, id> *selectorsToBlocks){
+        return [[HHBlockDelegate alloc] initWithProtocol:proto selectorsToBlocks:selectorsToBlocks];
+    };
+}
